@@ -1,28 +1,23 @@
 package assignment1defense;
-
 import java.util.Scanner;
+
 
 public class Main {
     public static void main(String[] args) {
-        /*
-        given string
-        lower case to upper case
-        recursion
-        no loop
-         */
-
-        Scanner scan=new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
         String s=scan.nextLine();
-        toUpper(s,0);
-
+        String result = ToUpper(s,s.length()-1);
+        System.out.println(result);
     }
-    public static char toUpper(String s, int index){
-        if(index==s.length()-1){
-            return Character.toUpperCase(ch);
+    public static String ToUpper(String str,int index) {
+        if (str.isEmpty() || index < 0) {
+            return str;
+        } else {
+            char[] chars = str.toCharArray();
+            chars[index] = (char) (chars[index] - 32);
+            String modifiedStr = new String(chars);
+            return ToUpper(modifiedStr, index - 1);
         }
-            char ch=s.charAt(index);
-            Character.toUpperCase(ch);
-            toUpper(s,index+1);
     }
 }
 
